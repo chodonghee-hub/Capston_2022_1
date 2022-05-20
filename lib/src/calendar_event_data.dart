@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'extensions.dart';
 
 /// Stores all the events on [date]
+/// 일정 정보 관련 코드
 @immutable
 class CalendarEventData<T> {
   /// Specifies date on which all these events are.
@@ -38,11 +39,12 @@ class CalendarEventData<T> {
   final DateTime? _endDate;
 
   /// Stores all the events on [date]
+  /// 하루 마다 표시되는 영역
   const CalendarEventData({
     required this.title,
     this.description = "",
     this.event,
-    this.color = Colors.blue,
+    this.color = Colors.cyanAccent,
     this.startTime,
     this.endTime,
     DateTime? endDate,

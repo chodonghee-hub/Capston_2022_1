@@ -35,8 +35,16 @@ class MobileHomePage extends StatelessWidget {
               onPressed: () => context.pushRoute(WeekViewDemo()),
               child: Text("Week View"),
             ),
+            SizedBox(
+              height: 20,
+            ),
+            ElevatedButton(
+              onPressed: () => context.pushRoute(WeekViewDemo()), // WeatherDemo
+              child: Text("Weather"),
+            ),
           ],
         ),
+        //return Weatehr ...
       ),
     );
   }

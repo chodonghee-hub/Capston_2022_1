@@ -25,7 +25,12 @@ class WeekPageHeader extends CalendarPageHeader {
           dateStringBuilder: WeekPageHeader._weekStringBuilder,
         );
   static String _weekStringBuilder(DateTime date, {DateTime? secondaryDate}) =>
-      "${date.day} / ${date.month} / ${date.year} to "
-      "${secondaryDate != null ? "${secondaryDate.day} / "
-          "${secondaryDate.month} / ${secondaryDate.year}" : ""}";
+      // 기존 코드 ... 주간 view 상단 ( 일 / 월 / 연도 ) 표시
+      // "${date.day} / ${date.month} / ${date.year} to "
+      // "${secondaryDate != null ? "${secondaryDate.day} / "
+      //     "${secondaryDate.month} / ${secondaryDate.year}" : ""}";
+
+      "${date.year} / ${date.month} / ${date.day} to "
+      "${secondaryDate != null ? "${secondaryDate.year} / "
+      "${secondaryDate.month} / ${secondaryDate.day}" : ""}";
 }

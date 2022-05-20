@@ -195,8 +195,9 @@ class MonthPageHeader extends CalendarPageHeader {
     VoidCallback? onNextMonth,
     AsyncCallback? onTitleTapped,
     VoidCallback? onPreviousMonth,
-    Color iconColor = Constants.black,
-    Color backgroundColor = Constants.headerBackground,
+    Color iconColor = Constants.black,  // < > 표시를 아이콘이라고 사용 중
+    // Color backgroundColor = Constants.headerBackground,
+    Color backgroundColor = Constants.defaultBorderColor,   // 메인 색상
     required DateTime date,
   }) : super(
           key: key,
@@ -209,7 +210,9 @@ class MonthPageHeader extends CalendarPageHeader {
           dateStringBuilder: MonthPageHeader._monthStringBuilder,
         );
   static String _monthStringBuilder(DateTime date, {DateTime? secondaryDate}) =>
-      "${date.month} - ${date.year}";
+      // 기존 코드 ... 월단 view 상단 ( 월 - 연도 ) 표시
+      // "${date.month} - ${date.year}";
+      "${date.year} - ${date.month}";
 }
 
 class WeekDayTile extends StatelessWidget {
@@ -229,7 +232,8 @@ class WeekDayTile extends StatelessWidget {
   const WeekDayTile({
     Key? key,
     required this.dayIndex,
-    this.backgroundColor = Constants.white,
+    // this.backgroundColor = Constants.white,
+    this.backgroundColor = Constants.defaultBorderColor,
     this.displayBorder = true,
     this.textStyle,
   }) : super(key: key);
@@ -242,17 +246,20 @@ class WeekDayTile extends StatelessWidget {
       padding: EdgeInsets.symmetric(vertical: 10.0),
       decoration: BoxDecoration(
         color: backgroundColor,
+        borderRadius: BorderRadius.circular(50),  // 둥근 속성 추가
         border: Border.all(
           color: Constants.defaultBorderColor,
-          width: displayBorder ? 0.5 : 0,
+          // width: displayBorder ? 0.5 : 0,
+          width: displayBorder ? 2 : 0,
         ),
       ),
       child: Text(
         Constants.weekTitles[dayIndex],
         style: textStyle ??
             TextStyle(
-              fontSize: 17,
-              color: Constants.black,
+              fontSize: 20,
+              color: Constants.offWhite,
+              fontWeight: FontWeight.bold,
             ),
       ),
     );

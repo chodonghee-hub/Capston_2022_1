@@ -9,12 +9,12 @@ import '../calendar_controller_provider.dart';
 import '../calendar_event_data.dart';
 import '../components/day_view_components.dart';
 import '../constants.dart';
-import '../event_arrangers/event_arrangers.dart';
+import 'event_arrangers.dart';
 import '../event_controller.dart';
 import '../extensions.dart';
 import '../modals.dart';
 import '../typedefs.dart';
-import '_internal_day_view_page.dart';
+import '../day_view/_internal_day_view_page.dart';
 
 class DayView<T> extends StatefulWidget {
   /// A function that returns a [Widget] that determines appearance of each
