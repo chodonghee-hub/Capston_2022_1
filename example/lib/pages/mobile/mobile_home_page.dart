@@ -5,73 +5,61 @@ import '../day_view_page.dart';
 import '../month_view_page.dart';
 import '../week_view_page.dart';
 
-class MobileHomePage extends StatelessWidget {
+class MobileHomePage extends StatefulWidget {
+  const MobileHomePage({Key? key}) : super(key: key);
+
+  @override
+  State<MobileHomePage> createState() => _MobileHomePageState();
+}
+
+class _MobileHomePageState extends State<MobileHomePage> {
   var _selectedIndex = 0;
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text("Flutter Calendar Page"),
-        centerTitle: true,
-      ),
-      body: Center(
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
+    return SafeArea(
+      child: Scaffold(
+        appBar: AppBar(
+          title: Text("Flutter Calendar Page"),
+          centerTitle: true,
+        ),
+        body: IndexedStack(
+          index: _selectedIndex,
           children: [
-            ElevatedButton(
-              onPressed: () => context.pushRoute(MonthViewPageDemo()),
-              child: Text("Month View"),
+            MonthViewPageDemo(),
+            DayViewPageDemo(),
+            WeekViewDemo(),
+            WeekViewDemo(),
+          ],
+        ),
+        bottomNavigationBar: BottomNavigationBar(
+          type: BottomNavigationBarType.fixed,
+          currentIndex: _selectedIndex,
+          onTap: (value){
+            setState((){
+              _selectedIndex = value;
+            });
+          },
+          items: [
+            BottomNavigationBarItem(
+              label: "Month",
+              icon: Icon(Icons.school),
             ),
-            SizedBox(
-              height: 20,
+            BottomNavigationBarItem(
+              label: "Week",
+              icon: Icon(Icons.school),
             ),
-            ElevatedButton(
-              onPressed: () => context.pushRoute(DayViewPageDemo()),
-              child: Text("Day View"),
+            BottomNavigationBarItem(
+              label: "Day",
+              icon: Icon(Icons.school),
             ),
-            SizedBox(
-              height: 20,
-            ),
-            ElevatedButton(
-              onPressed: () => context.pushRoute(WeekViewDemo()),
-              child: Text("Week View"),
-            ),
-            SizedBox(
-              height: 20,
-            ),
-            ElevatedButton(
-              onPressed: () => context.pushRoute(WeekViewDemo()), // WeatherDemo
-              child: Text("Weather"),
+            BottomNavigationBarItem(
+              label: "Home",
+              icon: Icon(Icons.home),
             ),
           ],
-        ),        //return Weatehr ...
+        ),
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        type: BottomNavigationBarType.fixed,
-        currentIndex: _selectedIndex,
-        onTap: (value){
 
-        },
-        items: [
-          BottomNavigationBarItem(
-            label: "Home",
-            icon: Icon(Icons.home),
-          ),
-          BottomNavigationBarItem(
-            label: "Month",
-            icon: Icon(Icons.school),
-          ),
-          BottomNavigationBarItem(
-            label: "Week",
-            icon: Icon(Icons.school),
-          ),
-          BottomNavigationBarItem(
-            label: "Day",
-            icon: Icon(Icons.school),
-          ),
-        ],
-      ),
     );
   }
 }
-
