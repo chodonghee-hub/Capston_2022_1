@@ -6,6 +6,7 @@ import '../month_view_page.dart';
 import '../week_view_page.dart';
 
 class MobileHomePage extends StatelessWidget {
+  var _selectedIndex = 0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -43,9 +44,34 @@ class MobileHomePage extends StatelessWidget {
               child: Text("Weather"),
             ),
           ],
-        ),
-        //return Weatehr ...
+        ),        //return Weatehr ...
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        type: BottomNavigationBarType.fixed,
+        currentIndex: _selectedIndex,
+        onTap: (value){
+
+        },
+        items: [
+          BottomNavigationBarItem(
+            label: "Home",
+            icon: Icon(Icons.home),
+          ),
+          BottomNavigationBarItem(
+            label: "Month",
+            icon: Icon(Icons.school),
+          ),
+          BottomNavigationBarItem(
+            label: "Week",
+            icon: Icon(Icons.school),
+          ),
+          BottomNavigationBarItem(
+            label: "Day",
+            icon: Icon(Icons.school),
+          ),
+        ],
       ),
     );
   }
 }
+

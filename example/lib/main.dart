@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
     return CalendarControllerProvider<Event>(
       controller: EventController<Event>()..addAll(_events),
       child: MaterialApp(
-        title: 'Flutter Calendar Page Demo',
+        title: 'input new title',
         debugShowCheckedModeBanner: false,
         theme: ThemeData.light(),
         home: ResponsiveWidget(

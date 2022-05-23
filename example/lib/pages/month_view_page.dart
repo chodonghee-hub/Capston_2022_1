@@ -16,6 +16,7 @@ class MonthViewPageDemo extends StatefulWidget {
 }
 
 class _MonthViewPageDemoState extends State<MonthViewPageDemo> {
+  int _selectedIndex = 0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,6 +26,33 @@ class _MonthViewPageDemoState extends State<MonthViewPageDemo> {
         onPressed: _addEvent,
       ),
       body: MonthViewWidget(),
+      bottomNavigationBar: BottomNavigationBar(
+        type: BottomNavigationBarType.fixed,
+        currentIndex: _selectedIndex,
+        onTap: (value){
+          setState((){
+            _selectedIndex = value;
+          });
+        },
+        items: [
+          BottomNavigationBarItem(
+            label: "Month",
+            icon: Icon(Icons.home),
+          ),
+          BottomNavigationBarItem(
+            label: "Week",
+            icon: Icon(Icons.school),
+          ),
+          BottomNavigationBarItem(
+            label: "Day",
+            icon: Icon(Icons.school),
+          ),
+          BottomNavigationBarItem(
+            label: "Weater",
+            icon: Icon(Icons.school),
+          ),
+        ],
+      ),
     );
   }
 
