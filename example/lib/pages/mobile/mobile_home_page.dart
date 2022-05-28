@@ -4,6 +4,7 @@ import '../../extension.dart';
 import '../day_view_page.dart';
 import '../month_view_page.dart';
 import '../week_view_page.dart';
+import '../firebase_login_widget.dart';
 
 class MobileHomePage extends StatefulWidget {
   const MobileHomePage({Key? key}) : super(key: key);
@@ -25,10 +26,15 @@ class _MobileHomePageState extends State<MobileHomePage> {
         body: IndexedStack(
           index: _selectedIndex,
           children: [
+            // ElevatedButton(
+            //   onPressed: () => context.pushRoute(WeekViewDemo()),
+            //   child: Text("Week View"),
+            // ),
             MonthViewPageDemo(),
             DayViewPageDemo(),
             WeekViewDemo(),
-            WeekViewDemo(),
+            Login(),
+
           ],
         ),
         bottomNavigationBar: BottomNavigationBar(
@@ -41,20 +47,24 @@ class _MobileHomePageState extends State<MobileHomePage> {
           },
           items: [
             BottomNavigationBarItem(
-              label: "Month",
-              icon: Icon(Icons.school),
+              label: "월간",
+              icon: Icon(Icons.calendar_month),
             ),
             BottomNavigationBarItem(
-              label: "Week",
-              icon: Icon(Icons.school),
+              label: "주간",
+              icon: Icon(Icons.calendar_view_week),
             ),
             BottomNavigationBarItem(
-              label: "Day",
-              icon: Icon(Icons.school),
+              label: "일간",
+              icon: Icon(Icons.calendar_today),
             ),
             BottomNavigationBarItem(
-              label: "Home",
+              label: "로그인",
               icon: Icon(Icons.home),
+            ),
+            BottomNavigationBarItem(
+              label : "검색",
+              icon: Icon(Icons.search),
             ),
           ],
         ),

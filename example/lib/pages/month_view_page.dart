@@ -22,7 +22,7 @@ class _MonthViewPageDemoState extends State<MonthViewPageDemo> {
     return Scaffold(
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.add),
-        elevation: 8,
+        elevation: 10,
         onPressed: _addEvent,
       ),
       body: MonthViewWidget(),

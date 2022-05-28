@@ -1,5 +1,6 @@
 import 'package:calendar_view/calendar_view.dart';
 import 'package:flutter/material.dart';
+import 'package:firebase_core/firebase_core.dart';
 
 import 'model/event.dart';
 import 'pages/mobile/mobile_home_page.dart';
@@ -99,3 +100,5 @@ List<CalendarEventData<Event>> _events = [
     description: "Today is Joe's birthday.",
   ),
 ];
+
+
